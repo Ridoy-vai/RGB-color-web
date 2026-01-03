@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Responsive Image Gallery</title>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background: #f0f0f0;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 3rem;
+  }
+
+  h1 span {
+    display: inline-block;
+    animation: upDown 2s ease-in-out infinite, colorChange 4s linear infinite;
+    cursor: default;
+    /* color will be overridden by animation */
+  }
+
+  h1 span:hover {
+    animation-play-state: paused;
+    cursor: default;
+  }
+
+  @keyframes upDown {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+  }
+
+  /* Color change animation cycling through a set of colors */
+  @keyframes colorChange {
+    0% { color: #4a90e2; }
+    20% { color: #f39c12; }
+    40% { color: #e74c3c; }
+    60% { color: #8e44ad; }
+    80% { color: #27ae60; }
+    100% { color: #4a90e2; }
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 15px;
+  }
+
+  .gallery img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+
+  .gallery img:hover {
+    transform: scale(1.05);
+  }
+
+  /* Modal styles */
+  #modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+  }
+
+  #modal img {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 80vh;
+    border-radius: 8px;
+  }
+
+  #modalClose {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+  }
+</style>
+</head>
+<body>
+
+<h1>
+  <span>M</span><span>y</span><span> </span>
+  <span>I</span><span>m</span><span>a</span><span>g</span><span>e</span><span> </span>
+  <span>G</span><span>a</span><span>l</span><span>l</span><span>e</span><span>r</span><span>y</span>
+</h1>
+
+<div class="gallery">
+  <img src="../image-galary/0.JPG" alt="Image 0" />
+  <img src="../image-galary/1.JPG" alt="Image 1" />
+  <img src="../image-galary/2.JPG" alt="Image 2" />
+  <img src="../image-galary/3.JPG" alt="Image 3" />
+  <img src="../image-galary/4.JPG" alt="Image 4" />
+  <img src="../image-galary/5.JPG" alt="Image 5" />
+  <img src="../image-galary/6.JPG" alt="Image 6" />
+  <img src="../image-galary/7.JPG" alt="Image 7" />
+  <img src="../image-galary/8.JPG" alt="Image 8" />
+  <img src="../image-galary/9.JPG" alt="Image 9" />
+  <img src="../image-galary/10.JPG" alt="Image 10" />
+  <img src="../image-galary/11.JPG" alt="Image 11" />
+  <img src="../image-galary/12.JPG" alt="Image 12" />
+  <img src="../image-galary/13.JPG" alt="Image 13" />
+</div>
+
+<!-- Modal container -->
+<div id="modal" aria-modal="true" role="dialog" tabindex="-1">
+  <span id="modalClose" aria-label="Close modal">&times;</span>
+  <img id="modalImg" src="" alt="Expanded Image" />
+</div>
+
+<script>
+  // Title animation delay auto set for each span
+  const spans = document.querySelectorAll('h1 span');
+  spans.forEach((span, index) => {
+    span.style.animationDelay = `${index * 0.15}s, ${index * 0.15}s`;
+  });
+
+  // Modal elements
+  const modal = document.getElementById("modal");
+  const modalImg = document.getElementById("modalImg");
+  const modalClose = document.getElementById("modalClose");
+
+  // Open modal on gallery image click
+  document.querySelectorAll('.gallery img').forEach(img => {
+    img.addEventListener('click', () => {
+      modal.style.display = "block";
+      modalImg.src = img.src;
+      modalImg.alt = img.alt;
+      modal.focus();
+    });
+  });
+
+  // Close modal when close button clicked
+  modalClose.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  // Close modal when clicking outside the image
+  modal.onclick = function(e) {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  }
+
+  // Accessibility: close modal on ESC key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === "Escape" && modal.style.display === "block") {
+      modal.style.display = "none";
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Privacy Policy of Our Website explaining how we protect your data and privacy." />
+  <title>Privacy Policy</title>
+  <style>
+    /* Background gradient animation */
+    @keyframes gradientBG {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(-45deg, #2241ca, #7a28cb, #bb5e0d, #3bb2b8);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #f0f0f0;
+      padding: 20px;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+      max-width: 900px;
+      width: 100%;
+      padding: 40px 50px;
+      box-sizing: border-box;
+      line-height: 1.7;
+      color: #e0e0e0;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 40px;
+      text-shadow: 0 0 8px rgba(0,0,0,0.4);
+      overflow: hidden;
+    }
+
+    /* Animation for each line of header */
+    .animated-header span {
+      display: block;
+      opacity: 0;
+      transform: translateY(20px);
+      animation-fill-mode: forwards;
+      animation-name: fadeUp;
+      animation-duration: 0.8s;
+    }
+
+    .animated-header span:nth-child(1) { animation-delay: 0.3s; }
+    .animated-header span:nth-child(2) { animation-delay: 0.8s; }
+    .animated-header span:nth-child(3) { animation-delay: 1.3s; }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    section {
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #ffd54f;
+      margin-bottom: 12px;
+      text-shadow: 0 0 5px rgba(0,0,0,0.3);
+    }
+
+    p {
+      font-size: 1rem;
+      margin: 0;
+      padding-left: 12px;
+      border-left: 3px solid #ffd54f;
+      color: #ddd;
+      text-shadow: 0 0 2px rgba(0,0,0,0.2);
+    }
+
+    /* Link styling */
+    a {
+      color: #ffd54f;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover, a:focus {
+      color: #fff176;
+      text-decoration: underline;
+      outline: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .container {
+        padding: 25px 20px;
+      }
+
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 25px;
+      }
+
+      h2 {
+        font-size: 1.3rem;
+      }
+
+      p {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container" role="main">
+    <h1 class="animated-header" aria-label="Privacy Policy - Your privacy matters to us">
+      <span>Privacy</span>
+      <span>Policy</span>
+      <span>Your privacy matters to us</span>
+    </h1>
+
+    <section>
+      <h2>Information We Collect</h2>
+      <p>We may collect personal information such as your name, email address, and browsing behavior when you interact with our website.</p>
+    </section>
+
+    <section>
+      <h2>Use of Information</h2>
+      <p>Your information is used to improve our services, respond to inquiries, and send occasional updates and promotional materials.</p>
+    </section>
+
+    <section>
+      <h2>Cookies</h2>
+      <p>We use cookies to enhance your experience on our website. You can choose to disable cookies through your browser settings, but this may affect site functionality.</p>
+    </section>
+
+    <section>
+      <h2>Third-Party Services</h2>
+      <p>We may share information with trusted third-party service providers to help operate our business but never sell your personal data.</p>
+    </section>
+
+    <section>
+      <h2>Data Security</h2>
+      <p>We implement reasonable security measures to protect your information from unauthorized access or disclosure.</p>
+    </section>
+
+    <section>
+      <h2>Your Choices</h2>
+      <p>You can update or delete your information by contacting us at <a href="mailto:support@example.com">support@example.com</a>.</p>
+    </section>
+
+    <section>
+      <h2>Changes to this Policy</h2>
+      <p>We may update this Privacy Policy occasionally. Please review it periodically for any changes.</p>
+    </section>
+
+    <section>
+      <p>If you have any questions or concerns regarding your privacy, please feel free to <a href="mailto:support@example.com">contact us</a>.</p>
+    </section>
+  </div>
+</body>
+</html>
